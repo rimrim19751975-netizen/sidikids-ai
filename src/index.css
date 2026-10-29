@@ -1,0 +1,123 @@
+@import 'tailwindcss';
+
+/*
+ * SIDIKIDS AI — thème
+ * Palette : bleu doux (primaire), turquoise, jaune et violet en accents.
+ * Polices système uniquement : rapidité en 3G et rendu correct de l'arabe,
+ * du pulaar et du wolof, sans requête réseau donc disponibles hors ligne.
+ */
+@theme {
+  --color-sky-soft-50: #f2f7ff;
+  --color-sky-soft-100: #e3eeff;
+  --color-sky-soft-200: #c7ddff;
+  --color-sky-soft-300: #9dc5ff;
+  --color-sky-soft-400: #6aa5fb;
+  --color-sky-soft-500: #3b82f6;
+  --color-sky-soft-600: #2a66d0;
+  --color-sky-soft-700: #1e4e9f;
+
+  --color-teal-brand-50: #eafbf8;
+  --color-teal-brand-100: #ccf6ef;
+  --color-teal-brand-300: #6ee0d0;
+  --color-teal-brand-500: #14b8a6;
+  --color-teal-brand-600: #0f9488;
+  --color-teal-brand-700: #0d766d;
+
+  --color-sun-100: #fff7d6;
+  --color-sun-300: #fde68a;
+  --color-sun-500: #facc15;
+  --color-sun-600: #d9a406;
+  --color-sun-700: #8a6a04;
+
+  --color-grape-100: #efe9ff;
+  --color-grape-300: #c4b5fd;
+  --color-grape-500: #8b5cf6;
+  --color-grape-600: #7c3aed;
+  --color-grape-700: #5b21b6;
+
+  --color-ink-300: #9aa8c0;
+  --color-ink-500: #536485;
+  --color-ink-700: #2f4166;
+  --color-ink-900: #16233b;
+
+  --color-bg-page: #f2f7ff;
+  --color-card: #ffffff;
+
+  --font-sans: 'Segoe UI', system-ui, -apple-system, 'Noto Naskh Arabic', 'Geeza Pro', Arial, sans-serif;
+  --font-display: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+
+  --radius-kid: 1.75rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg-page);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Zones tactiles : jamais en dessous de 48 px pour les éléments enfant. */
+  button,
+  a[role='button'] {
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-sky-soft-600);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* Cartes enfant (coins très arrondis) et cartes adulte (sobriété du back-office). */
+.kid-card {
+  background: var(--color-card);
+  border-radius: var(--radius-kid);
+  box-shadow: 0 10px 30px -18px rgba(22, 35, 59, 0.35), 0 2px 0 0 rgba(22, 35, 59, 0.04);
+}
+
+.adult-card {
+  background: var(--color-card);
+  border-radius: 1rem;
+  border: 1px solid #e2e8f4;
+  box-shadow: 0 1px 2px rgba(22, 35, 59, 0.06);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--color-grape-600);
+  outline-offset: 2px;
+}
+
+/* Fond décoratif de l'univers enfant : halos doux, aucun asset externe. */
+.dune-bg {
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(110, 224, 208, 0.35), transparent 55%),
+    radial-gradient(ellipse at 90% 10%, rgba(196, 181, 253, 0.35), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(253, 230, 138, 0.35), transparent 60%);
+}
